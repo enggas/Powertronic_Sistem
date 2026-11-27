@@ -1,10 +1,17 @@
 import { createClient } from '@supabase/supabase-js'
 
-const url = import.meta.env.VITE_SUPABASE_URL
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY
+const url = (import.meta.env.VITE_SUPABASE_URL || '').trim()
+const key = (
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  ''
+).trim()
 
-if (!url || !key) {
-  throw new Error('Faltan VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en .env.local')
-}
+// Si la configuración está mal no se lanza una excepción (dejaría la página en
+// blanco): se expone el mensaje para que main.jsx lo muestre en pantalla.
+export const errorConfiguracion =
+  /^https?:\/\/.+/.test(url) && key
+    ? ''
+    : 'Faltan o son inválidas VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en el archivo .env.local'
 
-export const supabase = createClient(url, key)
+export const supabase = errorConfiguracion ? null : createClient(url, key)

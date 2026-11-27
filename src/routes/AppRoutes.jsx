@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { rutaInicial, useAuth } from '../features/auth/authContext'
 import { LoginPage } from '../features/auth/LoginPage'
 import { LandingHome } from '../features/landing/pages/landingHome'
-import { PanelLayoutPage } from '../features/panel/PanelLayout'
+import { PanelLayout } from '../features/panel/PanelLayout'
 import { ProductosPage } from '../features/productos/ProductosPage'
 import { RutaProtegida } from './RutaProtegida'
 
@@ -25,7 +25,7 @@ export const AppRoutes = () => (
 
     <Route element={<RutaProtegida />}>
       <Route path="/" element={<Inicio />} />
-      <Route element={<PanelLayoutPage />}>
+      <Route element={<PanelLayout />}>
         <Route element={<RutaProtegida permiso="inventario.leer" />}>
           <Route path="/productos" element={<ProductosPage />} />
         </Route>
