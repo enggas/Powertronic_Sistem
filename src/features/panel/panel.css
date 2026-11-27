@@ -1,0 +1,47 @@
+.marca { margin: 0; }
+.marca span { color: #22d3ee; }
+.caja { background: #141b2d; border: 1px solid #1f2a44; border-radius: 12px; padding: 24px; }
+.login { min-height: 100svh; display: grid; place-items: center; padding: 16px; }
+.login__form { width: min(380px, 100%); display: grid; gap: 16px; }
+
+.panel label, .login label { display: grid; gap: 6px; font-size: 0.9rem; }
+.panel input, .panel select, .login input {
+  width: 100%; padding: 10px; border-radius: 8px;
+  border: 1px solid #1f2a44; background: #0b0f1a; color: inherit; font: inherit;
+}
+.boton {
+  padding: 8px 14px; border-radius: 8px; border: 1px solid #1f2a44;
+  background: transparent; color: inherit; font: inherit; cursor: pointer;
+}
+.boton--primario { background: #22d3ee; border-color: #22d3ee; color: #04101a; font-weight: 600; }
+.boton:disabled { opacity: 0.6; cursor: wait; }
+.error { color: #f87171; margin: 0; }
+
+.panel__barra {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+  padding: 14px 24px; border-bottom: 1px solid #1f2a44;
+}
+.panel__barra nav { display: flex; gap: 16px; margin-right: auto; }
+.panel__barra nav a.active { color: #22d3ee; }
+.panel__contenido { padding: 24px; }
+
+.herramientas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+.herramientas input[type='search'] { max-width: 320px; margin-right: auto; }
+.herramientas label { display: flex; align-items: center; }
+.panel input[type='checkbox'] { width: auto; }
+.tabla { overflow-x: auto; }
+.tabla table { width: 100%; border-collapse: collapse; }
+.tabla th, .tabla td { padding: 10px; border-bottom: 1px solid #1f2a44; text-align: left; }
+.tabla tr.inactivo { opacity: 0.5; }
+.acciones { display: flex; gap: 8px; }
+
+.modal {
+  position: fixed; inset: 0; z-index: 10; overflow-y: auto;
+  display: flex; padding: 16px; background: rgba(0, 0, 0, 0.7);
+}
+.modal form {
+  width: min(640px, 100%); margin: auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+}
+.modal .ancho { grid-column: 1 / -1; }
+.modal label.casilla { display: flex; align-items: center; }
